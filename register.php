@@ -23,11 +23,11 @@
             </div>
 
             <label for="">Full name</label>
-            <input type="text" name="" id="fullname" name="fullname">
+            <input type="text" id="fullname" name="fullname">
             <label for="">Username</label>
-            <input type="text" name="" id="username" name="username">
+            <input type="text" id="username" name="username">
             <label for="">Email</label>
-            <input type="text" name="" id="email" name="email">
+            <input type="text" id="email" name="email">
             <label for="">Password</label>
             <input type="password" id="pwd" value="" name="pwd">
             <label for="">Confirm Password</label>
@@ -39,27 +39,28 @@
     <script>
         
         function register(){
-            var fullname = document.getElementById('fullname');
-            var username = document.getElementById('username');
-            var email = document.getElementById('email');
-            var pwd = document.getElementById('pwd');
-            var confirm_pwd = document.getElementById('confirm_pwd');
+            // var fullname = document.getElementById('fullname');
+            // var username = document.getElementById('username');
+            // var email = document.getElementById('email');
+            // var pwd = document.getElementById('pwd');
+            // var confirm_pwd = document.getElementById('confirm_pwd');
             var input_information = document.getElementById('input_information');
             var password_not_match = document.getElementById('password_not_match');
+
+            var result = "<?php echo result_php()?>";
 
             input_information.style.display='none';
             password_not_match.style.display='none';
             
 
-            if (fullname.value!="" && name.value!="" && email.value !="" && pwd.value!="" && confirm_pwd.value!="" ){
-                
-                if (pwd.value == confirm_pwd.value){
-                    
-                }else{
-                    password_not_match.style.display='block';
-                }
-            }else{
+            if (result == "no_information"){
                 input_information.style.display='block';
+            }else{
+                if (result == "not_match"){
+                    password_not_match.style.display='block';
+                }else{
+                    
+                }
             }
         }
     </script>
