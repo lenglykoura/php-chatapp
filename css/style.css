@@ -71,14 +71,19 @@ label{
     color:rgb(255, 255, 255);
     font-weight: bold;
 }
-.btn-login{
+.btn-green{
     /* height: 40px; */
     cursor: pointer;
     color: white;
     background-color: green;
 }
-.btn-rig{
+.btn-blue{
     background-color: #3982E4;
+    color: white;
+    cursor: pointer;
+}
+.btn-red{
+    background-color: #e43939;
     color: white;
     cursor: pointer;
 }
