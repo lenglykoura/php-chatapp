@@ -1,6 +1,5 @@
 <?php
 include('connection.php');
-$result;
 if (isset($_POST['submit'])){
     $fullname = $_POST['fullname'];
     $username = $_POST['username'];
@@ -12,9 +11,7 @@ if (isset($_POST['submit'])){
     $connect->query($sql);
     $result = 'sucessfull';
 }
-function result_register(){
-    return $result;
-}
+
 
 
 ?>
