@@ -1,8 +1,6 @@
 <?php
-session_start();
 require_once('connection.php');
-$result = "";
-
+$result_log = "";
 if (isset($_POST['submit'])){
     $fullname = $_POST['fullname'];
     $username = $_POST['username'];
@@ -10,46 +8,24 @@ if (isset($_POST['submit'])){
     $confirm_password = $_POST['confirm_pwd'];
     $email = $_POST['email'];
     
-    // $fullname = 'admin';
-    // $username = 'admin';
-    // $password = '123';
-    // $email = 'admin@gmail.com';
-
-    $sql = "INSERT INTO tb_user (full_name, user_name, pwd, email) VALUES ($fullname, $username, $password, $email)";
     if(empty($fullname) || empty($username) || empty($password) || empty($email)){
-        $result = 'no_information';
+        $result_log = 'input_information';
     }else{
         if($password != $confirm_password){
-            $result = 'not_match';
+            $result_log = 'password_not_match';
         }else{
+            $sql = "SELECT * FROM tb_user WHERE user_name = '$username'";
+            $result = $connect->query($sql);
+            $row = mysqli_fetch_assoc($result);
+            if ($row){
+                $result_log ='same_account';
+            }else{
+                $sql = "INSERT INTO tb_user (full_name, user_name, pwd, email) VALUES ($fullname, $username, $password, $email)";
+                $connect->query($sql);
+                $result_log = 'sucess';
+            }
             
         }
     }
-    // $connect->query($sql);
 }
-echo '
-    <script>
-            var input_information = document.getElementById("input_information");
-            var password_not_match = document.getElementById("password_not_match");
-
-            var result = "no_information";
-
-            input_information.style.display="none";
-            password_not_match.style.display="none";
-            
-
-            if (result == "no_information"){
-                input_information.style.display="block";
-            }else{
-                if (result == "not_match"){
-                    password_not_match.style.display="block";
-                }else{
-                    
-                }
-            }
-    </script>
-';
-
-
-
 ?>

@@ -13,9 +13,10 @@ if (isset($_POST['submit'])){
             $result =  $connect->query($sql);
             $row = mysqli_fetch_assoc($result);
             if ($row){
+                $id = $row['id'];
                 $result_log = 'sucess';
-                header('Location:home.php');
-                
+                // print_r($id);
+                header("Location:home.php?id={$id}");
             }else{
                 $result_log = 'incorrect';
             }

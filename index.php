@@ -1,6 +1,5 @@
 <?php
     include('./php/login_action.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,27 +32,26 @@
 </body>
 
 <script>
-            var input_information = document.getElementById('input_information');
-            var password_is_incorrect = document.getElementById('password_is_incorrect');
-            var sucessfull = document.getElementById('sucess');
+    var input_information = document.getElementById('input_information');
+    var password_is_incorrect = document.getElementById('password_is_incorrect');
+    var sucessfull = document.getElementById('sucess');
 
-            var result = "<?php echo $result_log; ?>";
+    var result = "<?php echo $result_log; ?>";
 
-            input_information.style.display='none';
-            password_is_incorrect.style.display='none';
-            sucessfull.style.display='none';
+    input_information.style.display='none';
+    password_is_incorrect.style.display='none';
+    sucessfull.style.display='none';
 
-            if (result == "no_information"){
-                input_information.style.display='block';
-            }else{
-                if (result == "incorrect"){
-                    password_is_incorrect.style.display='block';
-                }else{
-                    if (result == "sucess"){
-                        sucessfull.style.display='block';
-                    }
-                }
-            }
-    </script>
+    if (result == "no_information"){
+        input_information.style.display='block';
+    }
+    if (result == "incorrect"){
+        password_is_incorrect.style.display='block';
+    }
+    if (result == "sucess"){
+            sucessfull.style.display='block';
+    }
+            
+</script>
 
 </html>

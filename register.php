@@ -1,7 +1,6 @@
 <?php
     include('./php/register_action.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,13 +14,6 @@
         <div class="container rig-form">
             <h2>Register</h2>
 
-            <div class="alert">
-                <input type="button" value="Sucessfull signup." id="sucess" class="done" style="display: none;">
-                <input type="button" value="Please input information." id="input_information" class="warning" style="display: none;">
-                <input type="button" value="Password isn't match." id="password_not_match" class="warning" style="display: none;">
-                <input type="button" value="This username is already in our database." id="" class="warning" style="display: none;">
-            </div>
-
             <label for="">Full name</label>
             <input type="text" id="fullname" name="fullname">
             <label for="">Username</label>
@@ -32,36 +24,42 @@
             <input type="password" id="pwd" value="" name="pwd">
             <label for="">Confirm Password</label>
             <input type="password" id="confirm_pwd" value="" name="confirm_pwd">
-            <input type="submit" value="Register" class="btn-blue" onclick="register()" id="submit" name="submit">
+
+            <div class="alert">
+                <input type="button" value="Sucessfull signup." id="sucess" class="done" style="display: none;">
+                <input type="button" value="Please input information." id="input_information" class="warning" style="display: none;">
+                <input type="button" value="Password isn't match." id="password_not_match" class="warning" style="display: none;">
+                <input type="button" value="Username already used." id="already_have" class="warning" style="display: none;">
+            </div>
+
+            <input type="submit" value="Register" class="btn-blue" id="submit" name="submit">
             <a href="./index.php">Back</a>
         </div>
     </form>
     <script>
+        var input_information = document.getElementById('input_information');
+        var password_not_match = document.getElementById('password_not_match');
+        var sucess = document.getElementById('sucess');
+        var already_have = document.getElementById('already_have');
+
+        var result = "<?php echo $result_log; ?>";
+
+        input_information.style.display='none';
+        password_not_match.style.display='none';
+        sucess.style.display='none';
+        already_have.style.display='none';
         
-        function register(){
-            // var fullname = document.getElementById('fullname');
-            // var username = document.getElementById('username');
-            // var email = document.getElementById('email');
-            // var pwd = document.getElementById('pwd');
-            // var confirm_pwd = document.getElementById('confirm_pwd');
-            var input_information = document.getElementById('input_information');
-            var password_not_match = document.getElementById('password_not_match');
-
-            var result = "<?php echo result_php()?>";
-
-            input_information.style.display='none';
-            password_not_match.style.display='none';
-            
-
-            if (result == "no_information"){
-                input_information.style.display='block';
-            }else{
-                if (result == "not_match"){
-                    password_not_match.style.display='block';
-                }else{
-                    
-                }
-            }
+        if (result == 'input_information'){
+            input_information.style.display = 'block';
+        }
+        if (result == 'password_not_match'){
+            password_not_match.style.display = 'block';
+        }
+        if (result == 'sucess'){
+            sucess.style.display = 'block';
+        }
+        if (result == 'same_account'){
+            already_have.style.display = 'block';
         }
     </script>
 </body>
