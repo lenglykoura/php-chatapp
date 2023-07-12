@@ -20,7 +20,7 @@ if (isset($_POST['submit'])){
             if ($row){
                 $result_log ='same_account';
             }else{
-                $sql = "INSERT INTO tb_user (full_name, user_name, pwd, email) VALUES ($fullname, $username, $password, $email)";
+                $sql = "INSERT INTO tb_user (full_name, user_name, pwd, email) VALUES ('$fullname', '$username', '$password', '$email')";
                 $connect->query($sql);
                 $result_log = 'sucess';
             }

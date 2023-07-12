@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
 
@@ -32,11 +33,24 @@
 </body>
 
 <script>
+
+    var text1 = document.getElementById('username');
+    var text2 = document.getElementById('pwd');    
+
     var input_information = document.getElementById('input_information');
     var password_is_incorrect = document.getElementById('password_is_incorrect');
     var sucessfull = document.getElementById('sucess');
 
     var result = "<?php echo $result_log; ?>";
+
+    text1.addEventListener("focus", logKey);
+    text2.addEventListener("focus", logKey);
+
+    function logKey() {
+        input_information.style.display='none';
+        password_is_incorrect.style.display='none';
+        sucessfull.style.display='none';
+    }
 
     input_information.style.display='none';
     password_is_incorrect.style.display='none';
