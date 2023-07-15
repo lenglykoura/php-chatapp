@@ -202,7 +202,7 @@ label{
     text-align: left;
 }
 .users-list {
-    max-height: 550px;
+    max-height: 610px;
     overflow-y: auto;
     padding-right: 10px ;
     padding-bottom: 10px ;
@@ -234,12 +234,8 @@ label{
     border: none;
 }
 .list-message{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 495px;
-    max-height: 495px;
+    height: 500px;
+    max-height: 500px;
     padding: 10px;
     padding-right: 10px ;
     padding-bottom: 10px ;
@@ -271,6 +267,7 @@ label{
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    justify-content: space-between;
 }
 .user-bar img{
     margin-right: 10px;
@@ -296,22 +293,36 @@ label{
     width: 100%;
     justify-content: space-between;
 }
+.message-text input{
+    width: 94%;
+}
+.message-text button{
+    width: 5%;
+}
 .message-text input {
     height: 40px;
 }
-.search-btn{
-    display: none;
-}
-
+@media screen and (max-width: 1000px) {
+    .message-text input{
+        width: 90%;
+    }
+    .message-text button{
+        width: 9%;
+    }
+  }
 @media screen and (max-width: 414px) {
     .chat-form{
         width: 100%;
         border: none;
     }
     .chat-box{
-        display: none;
+        width: 100%;
+        border: none;
     }
     .users-list{
-        max-height: 490px;
+        max-height: 550px;
+    }
+    .list-message{
+        max-height: 445px;
     }
   }

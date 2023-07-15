@@ -3,7 +3,7 @@ include("connection.php");
 $id1 = $_POST['sender'];
 $id2 = $_POST['receiver'];
 
-$sql = "SELECT * FROM tb_message WHERE (sender = $id1 and receiver = $id2) or (receiver = $id1 and sender = $id2) ORDER BY message_date";
+$sql = "SELECT * FROM tb_message WHERE (sender = $id1 and receiver = $id2) or (receiver = $id1 and sender = $id2) ORDER BY message_date desc";
 $result_message = $connect->query($sql);
 while($row_message = mysqli_fetch_assoc($result_message)){
     if ($row_message['sender']== $id1){

@@ -14,10 +14,64 @@
             justify-content: flex-end;
             align-items: flex-end;
         }
+        .ho{
+            width: 100%;
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+            background-color: red;
+            
+            justify-content: flex-end;
+            align-items: flex-end;
+            overflow: hidden scroll;
+        }
+        span{
+            /* position: relative; */
+            /* position: absolute; */
+            border: none;
+            background-color: blue;
+            border: 5px;
+            padding:20px ;
+        }
     </style>
 <body>
     <div class="hi">
+        <div class="ho">
         <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+        <span>Hi</span>
+
+        </div>
+        
     </div>
 </body>
 </html>

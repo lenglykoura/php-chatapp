@@ -6,8 +6,11 @@ if(isset($_POST['message'])){
     $receiver =  $_POST['receiver'];
     $message = $_POST['message'];
     $date = date("Y-m-d h:i:sa");
-    $sql = "INSERT INTO tb_message (message, message_date, sender, receiver) VALUES ('$message', '$date',$sender,$receiver)";
-    $connect->query($sql);
+    if ($message != ""){
+        $sql = "INSERT INTO tb_message (message, message_date, sender, receiver) VALUES ('$message', '$date',$sender,$receiver)";
+        $connect->query($sql);
+    }
+    
 }
 
 ?>
