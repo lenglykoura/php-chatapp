@@ -12,8 +12,5 @@ if (isset($_SESSION["id"])){
 }else{
     header('location:./index.php');
 }
-if (isset($_POST["submit-user"])){
-    $userdata = "Hello";
-}
 
 ?>

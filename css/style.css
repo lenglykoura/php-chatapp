@@ -99,6 +99,16 @@ input{
     padding: 8px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
+.msg{
+    /* height: auto; */
+    /* width: 20%; */
+    border: none;
+
+    text-align: left;
+    outline: none;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
 label{
     /* display: flex; */
     text-align: left;
@@ -128,6 +138,8 @@ label{
     background-color: #3982E4;
     color: white;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
 .btn-red{
     background-color: #e43939;
@@ -195,8 +207,8 @@ label{
     padding-right: 10px ;
     padding-bottom: 10px ;
     /* background-color: rgb(246, 246, 246); */
-
 }
+
 /* .users-list::-webkit-scrollbar{
     width: max-content;
 } */
@@ -220,6 +232,25 @@ label{
     background-color: rgb(222, 222, 222);
     border-radius: 20px;
     border: none;
+}
+.list-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 495px;
+    max-height: 495px;
+    padding: 10px;
+    padding-right: 10px ;
+    padding-bottom: 10px ;
+    flex: 1 1 auto;
+	overflow-y: scroll;
+
+}
+.list-message::-webkit-scrollbar {
+    width: 5px;
+    /* padding: 10px; */
+    /* height: 50px; */
 }
 .users-list a{
     color:rgb(37, 37, 37);
@@ -268,7 +299,9 @@ label{
 .message-text input {
     height: 40px;
 }
-
+.search-btn{
+    display: none;
+}
 
 @media screen and (max-width: 414px) {
     .chat-form{
