@@ -124,14 +124,15 @@ if(isset($_POST['user_id'])){
                                 <!-- <p class="active-status" style="color:<?php echo $log_status; ?>;"><?php echo $chat_time; ?></p> -->
                             </div>
                             <div style="width: 50%; text-align: right;">
-                                <button class="btn btn-blue" id="back-to-list">Back</button>
+                                <button style="height: 40px;" class="btn btn-blue" id="back-to-list">Back</button>
                             </div>
                             
                         </div>
                     </header>
-                    <div class="list-message" id="message_grid">
+                    <div class="list-message" >
+                        <div style="width: 100%;" class="scroll-message" id="message_grid">
                         <?php
-                        $sql = "SELECT * FROM tb_message WHERE (sender = $_SESSION[id] and receiver = $qid) or (receiver = $_SESSION[id] and sender = $qid) ORDER BY message_date desc";
+                        $sql = "SELECT * FROM tb_message WHERE (sender = $_SESSION[id] and receiver = $qid) or (receiver = $_SESSION[id] and sender = $qid) ORDER BY message_date";
                         $result_message = $connect->query($sql);
                         while($row_message = mysqli_fetch_assoc($result_message)){
                             if ($row_message['sender']== $_SESSION['id']){
@@ -141,13 +142,15 @@ if(isset($_POST['user_id'])){
                                 $side = "left";
                                 $border = "border-radius: 10px 10px 10px 0;";
                             }
-                            echo '<br><div style="width:100%;text-align: '.$side.';">
+                            echo '<br><div style="width:100%;text-align: '.$side.'; ">
                             <span class="msg" style="'.$border.';">
                                 '.$row_message["message"].'
                                 </span>
                             </div><br>';
                         };
                         ?>
+                        </div>
+                        
                     </div>      
                     <form method="post" action="" id="form">
                         <div class="message-list ">
