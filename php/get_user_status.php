@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 include("connection.php");
 $uid = $_SESSION['id'];
-$time = time()-5;
+$time = time()-10;
 $html = '';
 // $name = $_POST['fullname'];
 $sql = '';

@@ -234,7 +234,6 @@ label{
     border: none;
 }
 .list-message{
-    
     height: 500px;
     max-height: 500px;
     padding: 10px;
@@ -248,17 +247,16 @@ label{
 
 }
 .scroll-message{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-end; */
     height: 500px;
     max-height: 500px;
     padding: 10px;
-    flex: 1 1 auto;
-	overflow: hidden scroll;
-    
-    flex: 100 auto;
+    /* flex: 1 1 auto; */
+	overflow-y:  auto;
+    /* flex: 100 auto; */
 	/* overflow: hidden scroll; */
 }
 .scroll-message::-webkit-scrollbar {
