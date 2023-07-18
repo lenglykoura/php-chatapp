@@ -7,7 +7,7 @@
     text-decoration: none;
     font-family: 'arial';
     font-size: 13px;
-    margin-top: 5px;
+    margin-top: 5px;~
     /* margin-bottom: 5px; */
     /* align-items: center; */
 }
@@ -102,8 +102,8 @@ input{
 .msg{
     /* height: auto; */
     /* width: 20%; */
+    /* margin: 35px; */
     border: none;
-
     text-align: left;
     outline: none;
     padding: 10px;
@@ -232,6 +232,7 @@ label{
     background-color: rgb(222, 222, 222);
     border-radius: 20px;
     border: none;
+    
 }
 .list-message{
     height: 500px;
@@ -244,6 +245,7 @@ label{
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: 20px;
 
 }
 .scroll-message{
@@ -318,10 +320,10 @@ label{
 .message-text input {
     height: 40px;
 }
-span {
+/* span {
     text-overflow: ellipsis;
     overflow: hidden;
-}
+} */
 @media screen and (max-width: 1000px) {
     .message-text input{
         width: 90%;

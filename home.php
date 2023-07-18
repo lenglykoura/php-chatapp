@@ -130,10 +130,10 @@ if(isset($_POST['user_id'])){
                             
                         </div>
                     </header>
-                    <div class="list-message" >
+                    <div class="list-message">
                         <div style="width: 100%;" class="scroll-message" id="message_grid">
                         <?php
-                        $sql = "SELECT *,MAX(id) as mid FROM tb_message WHERE (sender = $_SESSION[id] and receiver = $qid) or (receiver = $_SESSION[id] and sender = $qid) ORDER BY message_date AND MAX(ID) ";
+                        $sql = "SELECT * FROM tb_message WHERE (sender = $_SESSION[id] and receiver = $qid) or (receiver = $_SESSION[id] and sender = $qid) ORDER BY message_date ";
                         $result_message = $connect->query($sql);
                         while($row_message = mysqli_fetch_assoc($result_message)){
                             if ($row_message['sender']== $_SESSION['id']){
@@ -143,23 +143,19 @@ if(isset($_POST['user_id'])){
                                 $side = "left";
                                 $border = "border-radius: 10px 10px 10px 0;";
                             }
-                            if ($row_message['mid'] > $chatID){
-                                $chatID = $row_message['mid'];
-                            }
-                            
                             echo '
-                            <br><div style="width:100%;text-align: '.$side.'; ">
+                            <div style="margin:0px;padding:15px;width:100%;height:40px;text-align: '.$side.'; ">
                             <span class="msg" style="'.$border.';">
                                 '.$row_message["message"].'
                                 </span>
-                            </div><br>
+                            </div>
                             ';
                         };
                         ?>
                         </div>
                         
                     </div>      
-                    <form method="post" action="" id="form">
+                    <form method="post" action="" id="form" style="margin-top: 10px;" >
                         <div class="message-list ">
                             <div class="message-text">
                                 <input type="text" name="message" id="message"  placeholder="Type here">
@@ -172,17 +168,24 @@ if(isset($_POST['user_id'])){
         </div>
     </div>
     <script type="text/javascript">
+        
         document.querySelector("#message").addEventListener("keypress",function(event){
             if(event.key=="Enter"){
                 event.preventDefault();
                 senderMessage();
                 clearTextMessage();
+                $(function () {
+                    var ChatDiv = $('.scroll-message');
+                    var height = ChatDiv[0].scrollHeight;
+                    ChatDiv.scrollTop(height);
+                });
             }
         })
         document.querySelector("#send").addEventListener("click",()=>{
             senderMessage();
             clearTextMessage();
         })
+
         function senderMessage(){
             var senderID = <?= $_SESSION['id']?>;
             var receiverID = <?= $qid?>;
@@ -200,7 +203,6 @@ if(isset($_POST['user_id'])){
         }   
     </script>
     <script>
-        if (<?= $chatID?> )
         $(function () {
             var ChatDiv = $('.scroll-message');
             var height = ChatDiv[0].scrollHeight;
